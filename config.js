@@ -18,8 +18,8 @@ const require = createRequire(__dirname)
 const { name, nameProyect, author, description, repository } = require(join(__dirname, 'package.json'))
 
 global.owner = [
-['5215517489568','𝓢𝓾𝓹𝓻𝓮𝓶𝓮 𝓔𝓷𝓭𝔂𝓶𝓲𝓸𝓷 - Creador 👁️', false],
-['5215533827255', '𝓡𝓮𝔂 𝓔𝓷𝓭𝔂𝓶𝓲𝓸𝓷 - Creador 👑', true]
+    ['1221','Verificando cambios', false],
+    ['5215533827255', '𝓡𝓮𝔂 𝓔𝓷𝓭𝔂𝓶𝓲𝓸𝓷 - Creador 👑', true]
 ] // Cambia los numeros que quieras
 /**********GLOBAL INFO*****************/
 global.packname = '(☞ﾟ∀ﾟ)☞'
@@ -74,16 +74,13 @@ global.imagen3 = fs.readFileSync(join(media,`pictures/Pre Bot Publi.png`))
 global.imagen4 = fs.readFileSync(join(media,`pictures/Menu.png`))
 global.img = 'https://i.imgur.com/IXlUwTW.jpg'
 global.img2 = 'https://i.imgur.com/EXTbyyn.jpg'
-
 global.img3 = 'https://i.imgur.com/oUAGYc2.jpg' //prem
 global.img4 = 'https://i.imgur.com/i0pccuo.jpg' //prem
-
 global.img5 = 'https://i.imgur.com/iL1snRx.jpeg'
 global.img6 = 'https://i.imgur.com/cYFgSKv.jpeg'
 global.img7 = 'https://i.imgur.com/JqL3h2V.jpeg'
 global.img8 = 'https://i.imgur.com/PCujt1s.jpeg'
 global.img9 = 'https://i.imgur.com/xfUEdDb.jpeg'
-
 global.img10 = 'https://i.imgur.com/DvHoMc3.jpg'
 global.img11 = 'https://i.imgur.com/5Q1MqGD.jpg'
 global.img12 = 'https://i.imgur.com/vWnsjh8.jpg'
@@ -94,24 +91,24 @@ global.stickerAMX = fs.readFileSync(join(media,`stickers/ANIMXSCANS.webp`))
 global.mods = [] 
 
 if (!fs.existsSync(authFolder)) {
-fs.mkdirSync(authFolder);
-console.log('Directorio ANIMXSCANS creado exitosamente');
+    fs.mkdirSync(authFolder);
+    console.log('Directorio ANIMXSCANS creado exitosamente');
 }
 if (!fs.existsSync(jadibts)) {
-fs.mkdirSync(jadibts);
-console.log('Directorio jadibts creado exitosamente');
+    fs.mkdirSync(jadibts);
+    console.log('Directorio jadibts creado exitosamente');
 }
 if (!fs.existsSync(authFolderRespald)) {
-fs.mkdirSync(authFolderRespald);
-console.log('Directorio sesionRespaldo creado exitosamente');
+    fs.mkdirSync(authFolderRespald);
+    console.log('Directorio sesionRespaldo creado exitosamente');
 }
 if (!fs.existsSync(temp)) {
-fs.mkdirSync(temp);
-console.log('Directorio tmp creado exitosamente');
+    fs.mkdirSync(temp);
+    console.log('Directorio tmp creado exitosamente');
 }
 if (!fs.existsSync(dataBases)) {
-fs.mkdirSync(dataBases);
-console.log(`Directorio ${dataBases} creado exitosamente`);
+    fs.mkdirSync(dataBases);
+    console.log(`Directorio ${dataBases} creado exitosamente`);
 }
 
 /*******IDIOMAS***** */
@@ -130,11 +127,12 @@ global.moment = moment
 global.multiplier = 99
 /***Configuración de logotipos******* */	
 global.flaaa = [
-'https://flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=water-logo&script=water-logo&fontsize=90&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextColor=%23000&shadowGlowColor=%23000&backgroundColor=%23000&text=',
-'https://flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=crafts-logo&fontsize=90&doScale=true&scaleWidth=800&scaleHeight=500&text=',
-'https://flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=amped-logo&doScale=true&scaleWidth=800&scaleHeight=500&text=',
-'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&text=',
-'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&fillColor1Color=%23f2aa4c&fillColor2Color=%23f2aa4c&fillColor3Color=%23f2aa4c&fillColor4Color=%23f2aa4c&fillColor5Color=%23f2aa4c&fillColor6Color=%23f2aa4c&fillColor7Color=%23f2aa4c&fillColor8Color=%23f2aa4c&fillColor9Color=%23f2aa4c&fillColor10Color=%23f2aa4c&fillOutlineColor=%23f2aa4c&fillOutline2Color=%23f2aa4c&backgroundColor=%23101820&text=']
+    'https://flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=water-logo&script=water-logo&fontsize=90&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextColor=%23000&shadowGlowColor=%23000&backgroundColor=%23000&text=',
+    'https://flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=crafts-logo&fontsize=90&doScale=true&scaleWidth=800&scaleHeight=500&text=',
+    'https://flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=amped-logo&doScale=true&scaleWidth=800&scaleHeight=500&text=',
+    'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&text=',
+    'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&fillColor1Color=%23f2aa4c&fillColor2Color=%23f2aa4c&fillColor3Color=%23f2aa4c&fillColor4Color=%23f2aa4c&fillColor5Color=%23f2aa4c&fillColor6Color=%23f2aa4c&fillColor7Color=%23f2aa4c&fillColor8Color=%23f2aa4c&fillColor9Color=%23f2aa4c&fillColor10Color=%23f2aa4c&fillOutlineColor=%23f2aa4c&fillOutline2Color=%23f2aa4c&backgroundColor=%23101820&text='
+]
 //********Tiempo***************
 global.d = new Date(new Date + 3600000)
 global.locale = 'es'
@@ -185,15 +183,17 @@ await import ('./rpg.js');
 
 let file = fileURLToPath(import.meta.url)
 watchFile(file, () => {
-unwatchFile(file)
-console.log(chalk.redBright("Actualizado 'config.js'"))
-import(`${file}?update=${Date.now()}`)})
+        unwatchFile(file)
+        console.log(chalk.redBright("Actualizado 'config.js'"))
+        import(`${file}?update=${Date.now()}`)
+    }
+)
 
 export {
-require,
-useStore,
-doReplies,
-usePairingCode,
-useMobile,
-__dirname
+    require,
+    useStore,
+    doReplies,
+    usePairingCode,
+    useMobile,
+    __dirname
 }

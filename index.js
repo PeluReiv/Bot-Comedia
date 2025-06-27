@@ -13,16 +13,20 @@ const { name, author, description } = require(join(__dirname, './package.json'))
 const { say } = cfonts
 const rl = createInterface(process.stdin, process.stdout)
 
-say('🌎ANI MX SCANS🌏\nWhatsApp - Bot - MD', {
-font: 'chrome',
-align: 'center',
-gradient: ['red', 'magenta']
-})
-say(`'${name}' By @${author.name || author}`, {
-font: 'console',
-align: 'center',
-gradient: ['red', 'magenta']
-})
+say('🌎ANI MX SCANS🌏\nWhatsApp - Bot - MD',
+    {
+        font: 'chrome',
+        align: 'center',
+        gradient: ['red', 'magenta']
+    }
+)
+say(`'${name}' By @${author.name || author}`,
+    {
+        font: 'console',
+        align: 'center',
+        gradient: ['red', 'magenta']
+    }
+)
 
 var isRunning = false
 
@@ -31,64 +35,77 @@ var isRunning = false
  * @param {String} file `path/to/file`
  */
 function start(file) {
-let args = [join(__dirname, file), ...process.argv.slice(2)]
+    let args = [join(__dirname, file), ...process.argv.slice(2)]
 
-say(`${description}\n\nPor favor sigue las instrucciones`, {
-font: 'console',
-align: 'center',
-gradient: ['red', 'magenta']
-});
+    say(`${description}\n\nPor favor sigue las instrucciones`,
+        {
+            font: 'console',
+            align: 'center',
+            gradient: ['red', 'magenta']
+        }
+    );
 
-setupMaster({
-exec: args[0],
-args: args.slice(1),
-})
-let p = fork()
-p.on('message', data => {
-if (data.type === 'ask') {
-rl.question(data.text, (answer) => {
-p.send({ type: 'response', answer: answer.trim() });
-});
-} else {
-console.log('[RECEIVED]', data)
+    setupMaster({
+        exec: args[0],
+        args: args.slice(1),
+    })
+    let p = fork()
+    p.on('message', data => {
+        if (data.type === 'ask') {
+            rl.question(data.text, 
+                (answer) => {
+                    p.send({ type: 'response', answer: answer.trim() });
+                }
+            );
+        }
+        else {
+            console.log('[RECEIVED]', data)
+        }
+        switch (data) {
+            case 'reset':
+            p.removeAllListeners('exit')
+            p.removeAllListeners('message')
+            p.process.kill()
+            start(file)
+            break
+            case 'uptime':
+            p.send(process.uptime())
+            break
+        }
+    })
+    p.on('exit', (_, code) => {
+        isRunning = false
+        console.error('❎ㅤOcurrio un error inesperado:', code)
+        p.removeAllListeners('exit')
+        p.removeAllListeners('message')
+        if (code === 0) 
+            return
+        if (code !== 0 || code === 'SIGKILL' || code === 'SIGABRT') 
+            p.emit('message', 'reset')
+        watchFile(args[0], 
+            () => {
+                unwatchFile(args[0])
+                start(file)
+            }
+        )
+    })
+    let opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse())
+    if (!opts['test']) {
+            if (!rl.listenerCount()) {
+                rl.on('line', 
+                    line => {
+                        p.emit('message', line.trim())
+                    }
+                )
+            }
+            rl.prompt()
+        }
 }
-switch (data) {
-case 'reset':
-p.removeAllListeners('exit')
-p.removeAllListeners('message')
-p.process.kill()
-start(file)
-break
-case 'uptime':
-p.send(process.uptime())
-break
-}
-})
-p.on('exit', (_, code) => {
-isRunning = false
-console.error('❎ㅤOcurrio un error inesperado:', code)
-p.removeAllListeners('exit')
-p.removeAllListeners('message')
-if (code === 0) return
-if (code !== 0 || code === 'SIGKILL' || code === 'SIGABRT') p.emit('message', 'reset')
-watchFile(args[0], () => {
-unwatchFile(args[0])
-start(file)
-})
-})
-let opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse())
-if (!opts['test']) {
-if (!rl.listenerCount()) {
-rl.on('line', line => {
-p.emit('message', line.trim())
-})
-}
-rl.prompt()
-}
-}
-rl.on('SIGINT', () => {
-console.log('\n❎ㅤSaliendo...');
-process.exit(0);
-});
+rl.on('SIGINT', 
+    () => {
+        console.log('\n❎ㅤSaliendo...');
+        process.exit(0);
+    }
+);
 
 start('start.js')
