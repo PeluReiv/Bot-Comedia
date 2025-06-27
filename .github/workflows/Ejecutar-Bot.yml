@@ -17,5 +17,7 @@ jobs:
       - run:  |
           git clone https://github.com/PeluReiv/Bot-Comedia.git
           cd Bot-Comedia
-          chmod +x ./InstallANI.sh
-          ./InstallANI.sh
+          sudo apt update
+          sudo apt install -y git nodejs ffmpeg imagemagick yarn
+          yarn install && npm install
+          npm start
