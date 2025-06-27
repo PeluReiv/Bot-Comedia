@@ -1,14 +1,7 @@
 name: Ejecutar-Bot
 
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-  # Allows you to run this workflow manually from the Actions tab
-  repository_dispatch:
-    types: [Ejecutar-Bot]
+  workflow_dispatch:
 
 jobs:
   Ejecutar-Bot:
