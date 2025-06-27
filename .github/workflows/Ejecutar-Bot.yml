@@ -14,22 +14,7 @@ jobs:
   Ejecutar-Bot:
     runs-on: ubuntu-latest
     steps:
-      - name: Instalar dependencias del sistema
-        run: |
-          sudo apt update
-          sudo apt upgrade -y
-          sudo apt install -y git nodejs ffmpeg imagemagick yarn
-
-      - name: Clonar repositorio
-        run: git clone https://github.com/PeluReiv/Bot-Comedia.git
-
-      - name: Instalar dependencias del proyecto
-        run: |
+      - run:  |
+          git clone https://github.com/PeluReiv/Bot-Comedia.git
           cd Bot-Comedia
-          yarn install
-          npm install
-
-      - name: Ejecutar bot
-        run: |
-          cd Bot-Comedia
-          npm start
+          ./InstallANI.sh
